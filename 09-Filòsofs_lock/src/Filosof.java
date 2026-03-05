@@ -16,7 +16,7 @@ public class Filosof extends Thread {
     }
 
     private void pensar() throws InterruptedException {
-        System.out.println("Filosof: fil" + idComensal + " pensant");
+        System.out.println("Fil" + idComensal + " pensant"); 
         Thread.sleep(1000 + random.nextInt(1001)); 
     }
 
@@ -24,19 +24,17 @@ public class Filosof extends Thread {
         agafarForquillaEsquerra();
         agafarForquillaDreta();
         calcularGana();
-        System.out.println("Filosof: fil" + idComensal + " gana = " + gana);
-        Thread.sleep(500 + random.nextInt(501)); // Espera 0.5s-1s
+        System.out.println("Fil" + idComensal + " té forquilles esq (" + esquerra.getId() + ") dreta (" + dreta.getId() + ")");
+        Thread.sleep(500 + random.nextInt(501)); 
     }
 
     private boolean agafarForquillaEsquerra() {
         esquerra.agafar();
-        System.out.println("Filosof: fil" + idComensal + " agafa la forquilla esquerra " + esquerra.getId());
         return true;
     }
 
     private boolean agafarForquillaDreta() {
         dreta.agafar();
-        System.out.println("Filosof: fil" + idComensal + " agafa la forquilla dreta " + dreta.getId());
         return true;
     }
     
@@ -44,13 +42,14 @@ public class Filosof extends Thread {
     private void deixarForquilles() {
         dreta.deixar();
         esquerra.deixar();
+        System.out.println("Fil" + idComensal + " deixa les forquilles"); 
     }
 
     private void menjar() throws InterruptedException {
         agafarForquilles();
-        System.out.println("Filosof: fil" + idComensal + " menja");
+        System.out.println("Fil" + idComensal + " menja amb gana " + gana);
         Thread.sleep(1000 + random.nextInt(1001)); 
-        System.out.println("Filosof: fil" + idComensal + " ha acabat de menjar");
+        System.out.println("Fil" + idComensal + " ha acabat de menjar"); 
         resetGana();
         deixarForquilles();
     }
