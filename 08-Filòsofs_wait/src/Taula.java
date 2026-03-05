@@ -1,3 +1,4 @@
+package src;
 public class Taula {
     private Filosof[] filosofs;
     private Forquilla[] forquilles;
